@@ -70,3 +70,11 @@ func CompareFuncIntAsc(i, j interface{}) bool {
 func CompareFuncIntDesc(i, j interface{}) bool {
 	return i.(int) > j.(int)
 }
+
+func CompareFuncStringAsc(i, j interface{}) bool {
+	return i.(string) < j.(string)
+}
+
+func CompareFuncStringDesc(i, j interface{}) bool {
+	return i.(string) > j.(string)
+}
