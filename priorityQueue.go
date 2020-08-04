@@ -2,33 +2,33 @@ package queue
 
 import "container/heap"
 
-type priorityQueue struct {
+type PriorityQueue struct {
 	implementation priorityQueueImplement
 }
 
-func NewPriorityQueue(compareFunc func(i, j interface{}) bool) *priorityQueue {
+func NewPriorityQueue(compareFunc func(i, j interface{}) bool) *PriorityQueue {
 	pqi := priorityQueueImplement{
 		items: make([]*interface{}, 0),
 		compareFunc: compareFunc,
 	}
 	heap.Init(&pqi)
 
-	return &priorityQueue{implementation: pqi}
+	return &PriorityQueue{implementation: pqi}
 }
 
-func (p *priorityQueue) IsEmpty() bool {
+func (p *PriorityQueue) IsEmpty() bool {
 	return p.Size() == 0
 }
 
-func (p *priorityQueue) Size() int {
+func (p *PriorityQueue) Size() int {
 	return p.implementation.Len()
 }
 
-func (p *priorityQueue) Push(value interface{}) {
+func (p *PriorityQueue) Push(value interface{}) {
 	heap.Push(&p.implementation, value)
 }
 
-func (p *priorityQueue) Pop() interface{} {
+func (p *PriorityQueue) Pop() interface{} {
 	return heap.Pop(&p.implementation)
 }
 
